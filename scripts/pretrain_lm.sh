@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+python ../train.py \
+--voc ../data/oxford/processed/vocab.json \
+--emdim 300 \
+--hidim 300 \
+--dropout 0.2 \
+--lr 0.001 \
+--decay_factor 0.1 \
+--decay_patience 0 \
+--epochs 32 \
+--batch_size 64 \
+--clip 5 \
+--random_seed 42 \
+--exp_dir ../checkpoints/ \
+--bptt 25 \
+--pretrain \
+--train_lm ../data/wikitext-103/wiki.train.tokens \
+--eval_lm ../data/wikitext-103/wiki.valid.tokens \
+--test_lm ../dta/wikitext-103/wiki.test.tokens \
+--w2v_weights ../data/oxford/processed/def_embedding \
+--cuda \
+--nlayers 2
